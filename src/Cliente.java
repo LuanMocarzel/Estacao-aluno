@@ -14,13 +14,6 @@ this.nome = nome;
 this.email = email;
 }
 
-//MÉTODO CONSTRUTOR CHEIO COM OS ATRIBUTOS, MENOS COM A CHAVE PRIMÁRIA
-public Cliente(String mat, String nome, String email) {
-//this.id = id;
-this.mat = mat;
-this.nome = nome;
-this.email = email;
-}
 //MÉTODOS GETTERS E SETTERS
 public Integer getId() {
 return id;

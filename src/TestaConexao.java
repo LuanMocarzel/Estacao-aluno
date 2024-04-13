@@ -3,7 +3,7 @@ import java.sql.*;
 public class TestaConexao {
 private static final String USUARIO = "root";
 private static final String SENHA = "";
-private static final String URL = "jdbc:mysql://localhost:3306/";
+private static final String URL = "jdbc:mysql://localhost:3306/bancojavafacul";
 public static Connection conectar()throws SQLException, ClassNotFoundException {
 DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 Connection conexao = (Connection) DriverManager.getConnection(URL, USUARIO, SENHA);
