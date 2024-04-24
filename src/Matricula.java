@@ -3,13 +3,10 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 
 public class Matricula extends javax.swing.JDialog {
-
-    Cliente cliente = new Cliente();
-    ClienteDAO clientedao = new ClienteDAO();
-    public Matricula() {
-    initComponents();
-    }
     
+    public Matricula() {
+        initComponents();
+    }
     public Matricula(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -117,34 +114,32 @@ public class Matricula extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSalvarActionPerformed
-        try {
-        Salvar_Dados();
-        } catch(Exception ex) {
-        }
-        }
-        private boolean validaCamposObrigatorios() {
-        return (txtNome.getText().equals("") || txtEmail.getText().equals(""));
-        }
-        private void Salvar_Dados() throws Exception{
+        Cliente cliente;
+        ClienteDAO dao;
+        boolean status;
+        int resp;
 
-        if(validaCamposObrigatorios()) {
-        JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de gravar!!");
-        } else {
-        try {
+        cliente = new Cliente();
         cliente.setMat(txtMat.getText());
         cliente.setNome(txtNome.getText());
         cliente.setEmail(txtEmail.getText());
 
-        clientedao.adicionar(cliente);
-
-        txtMat.setText("");
-        txtNome.setText("");
-        txtEmail.setText("");
-        }catch(SQLException e){
-        JOptionPane.showMessageDialog(null, "Erro aos salvar os dados" + e.toString());
+        dao = new ClienteDAO();
+        status = dao.conectar();
+        if (status == false) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
+        } else {
+            resp = dao.adicionar(cliente);
+            if (resp == 1) {
+                JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso");
+                limparCampos();
+            } else if (resp == 1062) {
+                JOptionPane.showMessageDialog(null, "Essa matrícula já foi cadastrada");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao tentar salvar o funcionário");
+            }
+            dao.desconectar();
         }
-        }
-
     }//GEN-LAST:event_bntSalvarActionPerformed
 
     private void txtMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatActionPerformed
@@ -160,7 +155,21 @@ public class Matricula extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void bntConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntConsultarActionPerformed
-        // TODO add your handling code here:
+       String matricula = txtMat.getText();
+       ClienteDAO dao = new ClienteDAO();
+       boolean status = dao.conectar();
+       if (status == true){
+           Cliente cliente = dao.Consultar(matricula);
+           if(cliente == null){
+               JOptionPane.showConfirmDialog(null, "Aluno nao encontrado");
+           }else{
+               JOptionPane.showConfirmDialog(null,"Aluno de nome: " + cliente.getNome() + "\n Matricula: " + cliente.getMat() + "\n Email: " + cliente.getEmail());
+           }
+           dao.desconectar();
+       }else{
+           JOptionPane.showConfirmDialog(null,"ERRO DE CONEXÃO COM O BANCO");
+       }
+        
     }//GEN-LAST:event_bntConsultarActionPerformed
 
     private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
@@ -172,9 +181,13 @@ public class Matricula extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "SISTEMA FECHADO!!!");
     }//GEN-LAST:event_bntSairActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public void limparCampos() {
+        txtMat.setText("");
+        txtNome.setText("");
+        txtEmail.setText("");
+
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
