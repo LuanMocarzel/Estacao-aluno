@@ -135,6 +135,7 @@ public class Matricula extends javax.swing.JDialog {
                 limparCampos();
             } else if (resp == 1062) {
                 JOptionPane.showMessageDialog(null, "Essa matrícula já foi cadastrada");
+                limparCampos();
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao tentar salvar o funcionário");
             }
@@ -164,6 +165,7 @@ public class Matricula extends javax.swing.JDialog {
                JOptionPane.showConfirmDialog(null, "Aluno nao encontrado");
            }else{
                JOptionPane.showConfirmDialog(null,"Aluno de nome: " + cliente.getNome() + "\n Matricula: " + cliente.getMat() + "\n Email: " + cliente.getEmail());
+               limparCampos();
            }
            dao.desconectar();
        }else{
@@ -173,7 +175,23 @@ public class Matricula extends javax.swing.JDialog {
     }//GEN-LAST:event_bntConsultarActionPerformed
 
     private void bntExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntExcluirActionPerformed
-        // TODO add your handling code here:
+       String matricula = txtMat.getText();
+       ClienteDAO dao = new ClienteDAO();
+       boolean status = dao.conectar();
+       if (status == true){
+           Cliente cliente = dao.Deletar(matricula);
+           if(cliente == null){
+               JOptionPane.showConfirmDialog(null, "Aluno Deletado");
+               limparCampos();
+           }else{
+               JOptionPane.showConfirmDialog(null,"Aluno nunca foi cadastrado ou Ja deletado");
+               limparCampos();
+           }
+           dao.desconectar();
+       }else{
+           JOptionPane.showConfirmDialog(null,"ERRO DE CONEXÃO COM O BANCO");
+       }
+        
     }//GEN-LAST:event_bntExcluirActionPerformed
 
     private void bntSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSairActionPerformed

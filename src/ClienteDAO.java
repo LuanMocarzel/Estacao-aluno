@@ -60,8 +60,26 @@ public class ClienteDAO {
                     return cliente;
                 } else {
                     return null;
-                }   } catch (HeadlessException | SQLException e) {
+                }   
+            } catch (HeadlessException | SQLException e) {
                 return null;
             }
         }
+    
+    public Cliente Deletar(String matricula){
+
+        try {
+            Cliente cliente = new Cliente();
+            pstm = conn.prepareStatement("DELETE FROM cliente WHERE mat LIKE ?");
+            pstm.setString(1, matricula);
+            pstm.execute();
+            return null;
+        } catch (SQLException ex) {
+            return null;
+        }
+
+            
+        }
+    
+    
     }
