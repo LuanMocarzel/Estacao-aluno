@@ -7,21 +7,13 @@ private String email;
 public Cliente() {
 }
 //MÉTODO CONSTRUTOR CHEIO COM TODOS OS ATRIBUTOS
-public Cliente(Integer id, String mat,String nome, String email) {
-this.id = id;
+public Cliente( String mat,String nome, String email) {
 this.mat = mat;
 this.nome = nome;
 this.email = email;
 }
 
 //MÉTODOS GETTERS E SETTERS
-public Integer getId() {
-return id;
-}
-
-public void setId(Integer id) {
-this.id = id;
-}
 public String getMat() {
 return mat;
 }
@@ -49,6 +41,6 @@ this.email = email;
 //ESSE MÉTODO IRÁ PRINTAR NA TELA UM OBJETO DA TABELA CLIENTE
 @Override
 public String toString() {
-return "id" + id + ", Matricula = " + mat + ", nome = " + nome + ", email = " + email;
+return "Matricula = " + mat + ", nome = " + nome + ", email = " + email;
 }
 }
