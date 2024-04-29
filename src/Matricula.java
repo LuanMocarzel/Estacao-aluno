@@ -32,81 +32,89 @@ public class Matricula extends javax.swing.JDialog {
         setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        bntSalvar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         bntSalvar.setText("Salvar");
+        bntSalvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bntSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntSalvarActionPerformed(evt);
             }
         });
-        getContentPane().add(bntSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 100, -1));
+        getContentPane().add(bntSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 380, 50));
 
         txtMat.setBackground(new java.awt.Color(204, 204, 204));
-        txtMat.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        txtMat.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         txtMat.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMatActionPerformed(evt);
             }
         });
-        getContentPane().add(txtMat, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 250, 40));
+        getContentPane().add(txtMat, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 300, 50));
 
-        jLabel5.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         jLabel5.setText("Matricula:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 88, 40));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 120, 40));
 
-        jLabel7.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         jLabel7.setText("Email:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, -1, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 80, 50));
 
-        jLabel10.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         jLabel10.setText("Nome:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 60, 40));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 60, 40));
 
         txtEmail.setBackground(new java.awt.Color(204, 204, 204));
-        txtEmail.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         txtEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 250, 40));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 300, 50));
 
         txtNome.setBackground(new java.awt.Color(204, 204, 204));
-        txtNome.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         txtNome.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 250, 40));
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 300, 50));
 
+        bntConsultar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         bntConsultar.setText("Consultar");
+        bntConsultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bntConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(bntConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 100, -1));
+        getContentPane().add(bntConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 380, 50));
 
+        bntExcluir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         bntExcluir.setText("Excluir");
+        bntExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bntExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntExcluirActionPerformed(evt);
             }
         });
-        getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 100, -1));
+        getContentPane().add(bntExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 620, 380, 50));
 
+        bntSair.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bntSair.setText("Sair");
+        bntSair.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bntSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntSairActionPerformed(evt);
             }
         });
-        getContentPane().add(bntSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, -1, -1));
+        getContentPane().add(bntSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 700, 160, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resouces/matricula.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resouces/telaMatricula.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

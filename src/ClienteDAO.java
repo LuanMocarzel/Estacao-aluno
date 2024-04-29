@@ -1,8 +1,5 @@
 import java.awt.HeadlessException;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 
 public class ClienteDAO {
@@ -69,7 +66,6 @@ public class ClienteDAO {
     public Cliente Deletar(String matricula){
 
         try {
-            Cliente cliente = new Cliente();
             pstm = conn.prepareStatement("DELETE FROM cliente WHERE mat LIKE ?");
             pstm.setString(1, matricula);
             pstm.execute();
